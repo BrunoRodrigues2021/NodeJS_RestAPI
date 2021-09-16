@@ -1,14 +1,14 @@
 const express = require('express');
 const router = express.Router();
 
-// RETORNA TODOS OS PEDIDOS
+// GET
 router.get('/', (req, res, next) => {
     res.status(200).send({
         mensagem: 'Retorna os pedidos'
     });
 });
 
-// INSERI UM PEDIDO
+// POST
 router.post('/', (req, res, next) => {
     const pedido = {
         id_produto: req.body.id_produto,
@@ -20,7 +20,7 @@ router.post('/', (req, res, next) => {
     });
 });
 
-// RETORNA OS DADOS DE UM PEDIDO
+// GET BY ID
 router.get('/:id_produto', (req, res, next) => {
     const id = req.params.id_produto;
     res.status(200).send({
@@ -29,14 +29,14 @@ router.get('/:id_produto', (req, res, next) => {
     });
 });
 
-// ATUALIZA OS DADOS DE UM PEDIDO
+// PATCH
 router.patch('/', (req, res, next) => {
     res.status(200).send({
         mensagem: 'PATCH Pedidos OK'
     });
 });
 
-// DELETA OS DADOS DE UM PEDIDO
+// DELETE
 router.delete('/', (req, res, next) => {
     res.status(200).send({
         mensagem: 'Pedido deletado'
