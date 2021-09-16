@@ -10,8 +10,13 @@ router.get('/', (req, res, next) => {
 
 // INSERI UM PRODUTO
 router.post('/', (req, res, next) => {
+    const produto = {
+        nome: req.body.nome,
+        preco: req.body.preco
+    };
     res.status(200).send({
-        mensagem: 'POST Produtos OK'
+        mensagem: 'POST Produtos OK',
+        produtoCriado: produto
     });
 });
 
