@@ -50,12 +50,12 @@ router.get('/:id_produto', (req, res, next) => {
 });
 
 // PATCH
-router.patch('/', (req, res, next) => {
+router.patch('/:id_produto', (req, res, next) => {
     mysql.getConnection((error, conn) => {
         if (error) { return res.status(500).send({ error: error }) }
         conn.query(
             'UPDATE produtos SET nome = ?, preco = ? WHERE id_produto = ?',
-            [req.body.nome, req.body.preco, req.body.id_produto],
+            [req.body.nome, req.body.preco, req.params.id_produto],
             (error, result, field) => {
                 conn.release();
                 if (error) { res.status(500).send({ error: error, response: null }); }
